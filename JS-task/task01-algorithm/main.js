@@ -8,8 +8,15 @@ const bookCollection = [
     { title: 'Love in the Time of Cholera', year: 1985, author: 'Gabriel García Márquez', details: { hardcopy: false, numberOfPages: 195 } },
 ];
 
-function bookSorter(bookList, year, isHardCopy) {
+function bookSorter(bookCollection, year, isHardCopy) {
 
-}
+        return bookCollection
+            .filter( item => item.year > year && item.details.hardcopy === isHardCopy)
+            .map(b => b.title)
+            .sort((a, b) => {
+                return a.localeCompare(b);
+            });
+
+};
 
 export { bookSorter };
